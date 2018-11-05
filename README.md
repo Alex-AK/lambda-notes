@@ -1,2 +1,2 @@
 # lambda-notes
-- personal notes through Lambda School Front End curriculum
+- personal notes through Lambda School front end curriculum
