@@ -15,10 +15,16 @@
   - git clone ________
  
   - git add . - adds all the files changed
+    - tracks the changes
+    - can do multiple adds before a commit
   - git commit -m “….” - Commit changes to head (but not yet to the remote repository)
-  - git commit -a Commit any files you've added with git add, and also commit any - files you've changed since then
+  - git commit -a Commit any files you've added with git add, and also commit any 
+    - commit saves those changes to and keeps a record
+  - files you've changed since then
   - git push - Send changes to the master branch of your remote repository:
   - code . - opens repository in vscode
   - status - use when in git repository
+  - git push - places local repo to github
 
+  - pull request: you submit your work to the owner for review. Then they can merge if they'd like.
 

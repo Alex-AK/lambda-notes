@@ -8,8 +8,6 @@
 ### References
  - https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing
 
-### Git Commands
-
 
 #### Formatting of CSS
 - broad styles at top of page, specific styles further down (`*` < elements < classes, psuedo-classes, attributes < IDs < inline styles < !important)
