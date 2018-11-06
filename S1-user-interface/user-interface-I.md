@@ -40,7 +40,7 @@ Syntax: programming grammar for language.
 
 ## CSS: Cascading Style Sheets
 ### Level of Importance
-- asterisk (universal) < elements < classes, psuedo-classes, attributes < IDs < inline styles < !important
+- `*` (universal) < elements < classes, psuedo-classes, attributes < IDs < inline styles < !important
 - order of elements, classes, elements matters since it's cascading down the sheet
 
 ##### Universal selector: individually selects every element and applies styling

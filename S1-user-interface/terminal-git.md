@@ -13,9 +13,12 @@
 
 #### Git Commands
   - git clone ________
-  - git add <filename> or * (all)
+ 
+  - git add . - adds all the files changed
   - git commit -m “….” - Commit changes to head (but not yet to the remote repository)
   - git commit -a Commit any files you've added with git add, and also commit any - files you've changed since then
   - git push - Send changes to the master branch of your remote repository:
+  - code . - opens repository in vscode
+  - status - use when in git repository
 
-![](Screen Shot 2018-11-05 at 2.57.53 PM)
+
