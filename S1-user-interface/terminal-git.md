@@ -27,4 +27,5 @@
   - git push - places local repo to github
 
   - pull request: you submit your work to the owner for review. Then they can merge if they'd like.
+  - once you did a pull request, you can do git add, git commit, git push
 

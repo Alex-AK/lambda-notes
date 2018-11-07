@@ -58,6 +58,8 @@ li:last-child {
 ```
 ##### ID elements
 - not often used because they are so heavy and specific
+- good for anchor elements
+- good for defining page styles ie #home #about
 
 ##### !important selector
 - !important - override any previous styles for that given property
