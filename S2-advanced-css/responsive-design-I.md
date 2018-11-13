@@ -27,16 +27,16 @@
   - no breakpoints
 
 ### Adaptive
-  - multiple templates
-  - screen size detected
+  - multiple templates, slower
+  - screen size detected with media query breakpoints
   - template loads based on proper screen size
-  - slower
+  - uses pixel
 
-## Responsive
-  - one template loads
+## Fully Responsive
+  - one template loads, fast
   - media queries detect screen size combined with percent based widths
   - media queries filter styling to display proper design layout
-  - fast
+  - `width: 100%` and `max-width: 1100px;`
 
 ### HTML meta tag
  - `<meta name="viewport" content="width=device-width, initial-scale=1.0">`
