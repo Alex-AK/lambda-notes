@@ -77,6 +77,7 @@
 
 ## Variables
   - important concept to know
+  - look into interpolation
 ```
 // Variables
   @nav-color: @persian-blue;
@@ -92,9 +93,12 @@
     font-size: 1.8rem;
     color: @nav-color;
   }
-
-
 ```
+
+## Variable Interpolation
+  - likely won't use this for our purposes
+  - look into this
+  - variable within a variable
 
 ## Lazy Evaluation
   - important concept to know
@@ -140,7 +144,3 @@
     align-items: @a-items;
   }
 ```
-
-
-## Variable Interpolation
-  - likely won't use this for our purposes
