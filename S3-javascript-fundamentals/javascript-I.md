@@ -190,6 +190,11 @@ listOfChars.forEach(function(chars) {
   - special objects treated with a special key/value pair
   - contain ordered values, zero based index order 
   - we can change, add, update, remove, etc
+  - very fast at retrieving specific item
+  - array methods live on the array prototype
+  - indexes are numerical
+  - often loop over entire array, searching for specific item is not efficient
+
 
 ```
   array = ['firstValue', 'secondValue'];
@@ -202,5 +207,17 @@ listOfChars.forEach(function(chars) {
 
   array [0] // 'firstValue';
 ```
+### Array Methods
+- `.push();` adds item to end of array
+- `.pop();` removes item from end of array
+- `.unshift();` adds item to beginning of array
+- `.shift();` removes item from beginning of array
+- `.splice(1, 1);` removes item from array at starting point to end point selected
 
-`.push()`
+
+### Important
+  - find first and last item in the array
+```
+const first = faveThings[0];
+const last = faveThings[faveThings.length - 1];
+```
