@@ -109,7 +109,7 @@ you.sayName(); // 'Tom'
   }
 ```
 
-## Contructors and Prototype
+## Contructors and Prototype and Object Oriented Programming
 
 -
 
@@ -121,3 +121,66 @@ you.sayName(); // 'Tom'
 - JS is NOT a class based language by nature
   - Classes in JS are what we call syntactic sugar over the constructor pattern
   - we use psuedo-classical inheritance (and a few others) that we can use to achieve OOP
+
+### Constructors
+
+- functions that create object
+  - receive an object and produce new object
+- capitalize constructor functions `function Person() {..}`
+  - instantiate (ie call upon the constructor) to produce an object using the `new` keyword
+  - `this` keyword used in constructor function and replaced with object when using `new`
+
+```
+  function Person(attributes) {
+    this.age = attributes.age;
+    this.name = attributes.name;
+    this.homeTown = attributes.homeTown;
+    this.speak = function () {
+      return `Hello, my name is ${this.name}`;
+    }; // this function would be better placed on the prototype to conserve memory
+  }
+
+  const fred = new Person({
+  age: 35,
+  name: 'Fred',
+  homeTown: 'Bedrock'
+});
+```
+
+### Prototype
+
+- mechanism by which all objects can inherit properties from one another
+- allows on to 'deliberately' modify an objects properties
+- helps avoid memory problems
+- allows one to extend an object's properties to another object
+- can be VERY dangerous, you can overwrite an entire objects methods if not careful
+
+```
+ function Person(attributes) {
+    this.age = attributes.age;
+    this.name = attributes.name;
+    this.homeTown = attributes.homeTown;
+  }
+
+  Person.prototype.speak = function () {
+      return `Hello, my name is ${this.name}`;
+    };
+  }
+```
+
+### Prototypal Inheritance
+
+```
+function Child(childAttributes) {
+  Person.call(this, childAttributes); // binding this to Person
+  this.isChild = childAttributes.isChild; // this will be a special attribute to Child
+}
+
+Child.prototype = Object.create(Person.prototype);
+
+const pebbles = new Child ({
+  age: 3,
+  name: 'Pebbles',
+  homeTown: 'Bedrock
+});
+```
