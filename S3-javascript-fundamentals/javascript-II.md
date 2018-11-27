@@ -2,6 +2,8 @@
 
 ### References
 
+- https://codepen.io/lambdaschool/pen/oQPWvN
+
 ### Important
 
 - closure is often brought up in interview questions
@@ -17,6 +19,10 @@
   - variables or functions declared within that function have the ability to reach outward for context, but never inward
   - this paradigm remains true, no maatter how deep you nest functions
 - how closure is created
+
+- when you have a function nested inside of a function, the inner function can access the outer variables, this is closure - it's a bridge
+- closure will only maintain variables you need access to, ie, if you don't use it, it won't be stored in the closure. If we're not using it JS doesn't hold memory for it.
+- "backbacks of information to be used for later"
 
 ```
   let me = 'Alex'
@@ -52,6 +58,39 @@ const newCounter = counter();
 console.log(newCounter()); // 1
 console.log(newCounter()); // 2
 // each time the function is invoked, it recalls the stored memory and incriments it.
+```
+
+```
+// More Closures
+function myFunc() {
+  console.log("IS this scope on?");
+}
+//myFunc();
+
+// Closures
+function sayName(name) {
+  const nameHolder = name;
+  console.log(`My name is ${nameHolder}`);
+  debugger;
+
+  function slang() {
+    const slangSaying = "Yo, what up,";
+    console.log(`${slangSaying} my name is ${nameHolder}`)
+    debugger;
+
+    function proper() {
+      const properSaying = "Good day,"
+      console.log(`We do not say: ${slangSaying} we say: ${properSaying} ${nameHolder}`);
+      debugger;
+    }
+
+    proper();
+  }// slang
+
+  slang();
+}// sayName
+
+sayName("Josh");
 ```
 
 ## Callback Functions
@@ -116,6 +155,27 @@ console.log(newCounter()); // 2
   });
 ```
 
+```
+function higherOrderFunction (a, b, cb) {
+  <!-- console.log(`${a}, ${b}, ${c}`); -->
+  return cb(a, b);
+}
+// function expression
+const add = function (a, b) {
+  console.log(a + b);
+}
+const subtract = function (a, b) {
+  console.log(a - b);
+}
+const multiply = function (a, b) {
+  console.log(a * b);
+}
+
+higherOrderFunction (2, 2, add);
+higherOrderFunction (2, 2, subtract);
+higherOrderFunction (2, 2, multiply);
+```
+
 ## Advanced Array Methods - https://codepen.io/Alex-AK/pen/XyVmbG?editors=0012
 
 - functional programming, immutability and making your data work your way
@@ -141,6 +201,7 @@ console.log(newCounter()); // 2
 
   - returns array of elements with index of element added
   - used for manipulating or reshaping data without altering original array
+  - use case: good for converting numbers C to F, or case sensitivity
 
   ```
     const mappedCityStates = data.map((state) => {
@@ -173,19 +234,6 @@ console.log(newCounter()); // 2
     }); // returns new array with key: value pairs that are true against condition
   ```
 
-- `.reduce();`
-
-  - returns a new array of elements
-  - takes a callback which is a reducer function
-  - reducer function takes a previous value and a next value, known as accumulator and currentValue
-  - manipulating or reshaping data into single value
-
-  ```
-    const reduceStatePopulations = data.reduce((total, state) => {
-      return total += state.population;
-    }, 0); // returns total population in a number, 0 is the start value
-  ```
-
 - `.forEach();`
 
   ```
@@ -194,4 +242,34 @@ console.log(newCounter()); // 2
     favThings.forEach((thing, index) => {
     alert(thing, index);
     }); // .forEach takes two parameters, the item found at index and the index you want
+  ```
+
+  ```
+  // for loop before .forEach
+    for (let i = 0; i < cityData.length; i++) {
+      someFunction();
+    }
+
+    function someFunction() {
+      console.log("This was called!");
+    }
+
+  // forEach
+    cityData.forEach(currentValue) {
+      console.log(currentValue);
+    }
+  ```
+
+- `.reduce();`
+
+  - returns a new array of elements
+  - takes a callback which is a reducer function
+  - reducer function takes a previous value and a next value, known as accumulator and currentValue
+  - manipulating or reshaping data into single value
+  - not used as frequently
+
+  ```
+    const reduceStatePopulations = data.reduce((total, state) => {
+      return total += state.population;
+    }, 0); // returns total population in a number, 0 is the start value
   ```
