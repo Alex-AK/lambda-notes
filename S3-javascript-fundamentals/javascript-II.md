@@ -37,11 +37,13 @@
   const lastName = "Bond";
   function greet() {
     const firstName = 'James';
-    alert(`The name's ${lastName}, ${firstName} {lastName}`);
+    console.log(`The name's ${lastName}, ${firstName} {lastName}`);
   }
 
   console.log(lastName); // logs "Bond"
   console.log(firstName); // does not work, cannot access function scope
+
+  greet(); // logs "The name's Bond, James Bond"
 ```
 
 ```
@@ -214,7 +216,7 @@ higherOrderFunction (2, 2, multiply);
     const favThings = ['coffee', 'relaxation', 'meaningful conversartion', 'reading'];
 
     const newArray = favThing.map((thing, index) => {
-    return `${thing} ${thing}`;
+    return `${index} ${thing}`;
     });
 
     console.log(newArray); // returns new array of elements with index added
