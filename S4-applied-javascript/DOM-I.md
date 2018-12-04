@@ -9,6 +9,7 @@
 
 - DOM is an object representation of HTML elements of a webpage.
   - code is given to browser and converted into objects
+- getElementby...('..') is faster because it's targeting the element, not the node with the element inside
 
 ## Documemnt Object Model - DOM
 
@@ -61,6 +62,7 @@
 - put selector in storage for later use and application of Document methods
 - querySelector() selects first matching element, class, or id in CSS
 - querySelectorAll() selects all matching elements and creates a NodeList (array-like collection)
+- good for readability
 
 ```
   const mainHeader = document.querySelector(".main-header");
@@ -72,6 +74,8 @@
 
   console.log(selectEverything); // __proto__ points to NodeList
     // returns NodeList(4), has access to some array methods, but not all
+      // NodeList is targeting the nodes, slightly slower but not significant without huge amounts of data.
+      // NodeList has access to forEach, highly valuable.
     // can convert to full array in JS with Array.from();
     // why would we want to convert to proper array? Converts to proper JS array with more methods
 
@@ -81,7 +85,7 @@
 ```
 
 ```
-// older methods but good to know, not used anymore, may be seen in older code bases
+// older methods but good to know, may see in older code bases
 const tagElements = document.getElementByTagName("a");
 const classElements = document.getElementsByClassName("nav-items"); // returns HTMLCollection(3);
 
@@ -90,6 +94,7 @@ const myCustomId = document.getElementById("home-tag") // returns <a href="#" cl
 
 console.log(tagElements); // returns HTMLCollection(4)
   // HTMLCollection was before NodeList and has even more limited methods
+  // HTMLCollection is targeted elements inside of the nodes. It's more specific and slightly faster with large data sets
 ```
 
 ## Methods on Document Object
