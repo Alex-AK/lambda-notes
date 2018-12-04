@@ -157,7 +157,7 @@ mainHeader.classList.remove("testing");
 
 ## DOM Element Creation
 
-- this pattern is seen in react
+- this pattern is seen in react, optimized through JSX
 - state (data) driven application
   - take databases of information and create thousands of unique webpages
   - is this how youtube homepage works?
