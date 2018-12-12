@@ -13,7 +13,7 @@
 - React, Vue, Ember abstract these away from you to the virtual DOM
 - When we add event listeneer, the string type determines what object contructor to build
   - different object contructor events will have different methods
-- user agent === browser
+- user agent === browser 
 
 ### Event Listeners
 
