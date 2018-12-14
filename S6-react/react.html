@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<style>
+  * {
+    box-sizing: border-box;
+  }
+  .heading {
+    background-color: teal;
+    color: lightgrey;
+    border: 3px solid lightgray;
+    width: 500px;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .heading:hover {
+    background-color: white;
+    color: teal;
+    border: 3px solid teal;
+  }
+
+  .center {
+    padding: 5px;
+    margin-right: 2px;
+  }
+  input {
+    width: 400px;
+  }
+
+  p {
+    margin-top: 5px;
+    font-size: 12px;
+  }
+
+</style>
+
+<body>
+  <div id="root"></div>
+</body>
+
+<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js"></script>
+<!-- Before JSX was Introduced, repetitive -->
+<script type="text/javascript">
+  const ElementOne = React.createElement('div', {
+    className: 'element-one'
+  }, React.createElement('h1', {}, 'This is element one.'));
+
+  ReactDOM.render(ElementOne, document.getElementById('root'));
+</script>
+
+<!-- JSX language and converting to above syntax through babelJS -->
+<script type='text/babel'>
+  const myElement =
+   <div className="element-one"> 
+    <h1>Hello World, with JSX</h1>
+    <p>I am currently 30 years old.</p>
+    <p>Living in Seattle, Washington</p>
+    </div>;
+  
+  ReactDOM.render(myElement, document.getElementById('root'));
+</script>
+
+<!-- Writing a Functional Component -->
+<script type="text/babel">
+  const MyHeader = props => {
+    return (
+        <p>{props.msg}</p>
+    );
+  };
+
+  const ThisIsAFunctionalComponent = props => {
+    // console.log('props: ', props)
+    return (
+    <div className="heading"> 
+      <MyHeader msg="This is a prop of a functional component being passed into another functional component. Then it's being passed to the render method and rendered to the div with the id of root." />
+    </div>
+    );
+  };
+
+    // passing props to components
+    ReactDOM.render(<ThisIsAFunctionalComponent name="Alex"/>, document.getElementById('root'));
+</script>
+
+<!-- Building an App with Components -->
+<script type="text/babel">
+
+  const HelloComponent = props => <h1 className="heading">Hello from React Components</h1>;
+  const MyButton = props => {
+    return <button className="center">Click this Button</button>
+  };
+  const MyInput = props => {
+    return <input className="center" type="text" placeholder="I am an input" />
+  }
+  const Disclaimer = props => {
+    return <p>When you submit this form, your information will be secure and never shared.</p>
+  }
+
+
+  const App = props => {
+    return (
+      <div>
+        <HelloComponent />
+        <MyInput />
+        <MyButton />
+        <Disclaimer />
+      </div>
+    )
+  }
+
+  ReactDOM.render(<App/>, document.getElementById('root'));
+</script>
+
+
+</html>
