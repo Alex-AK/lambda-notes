@@ -200,7 +200,7 @@ ReactDOM.render(<TodoApp />, mountNode);
 ```
 
 ### Setting up a React JS environment using a single HTML file
-- see react.html in this folder
+- see react.html in this folder `/Users/Alex/Documents/LambdaSchool/Notes/S6-react/react.html`
 - `React.createElement()` everything that gets built using react will make its way through this or a method like this.
 - props is the information react will give to the virtual DOM
 ```
@@ -230,8 +230,16 @@ ReactDOM.render(<TodoApp />, mountNode);
 - JS function takes in arbitrary parameters called `props`
 - encapsulates pieces of UI, including JS, markup, and styles (if desired)
 - need a return statement so you can render the function
+- may only return one element, so multiple tags have to be wrapped in `div` or `React.Fragment`
 ```
   const MyFirstComponent = props => {
     return <div>My first React component</div>;
   };
 ```
+
+### File Structure
+- must `export default (insert function or class to export here);`
+- then use `import (insert function or class exported here) from (insert file name here);`
+- when importing a dependency: `import React from 'react';`
+- when importing a function from an app: `import App from './App';`
+- containers only hold components
