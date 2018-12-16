@@ -243,3 +243,4 @@ ReactDOM.render(<TodoApp />, mountNode);
 - when importing a dependency: `import React from 'react';`
 - when importing a function from an app: `import App from './App';`
 - containers only hold components
+
