@@ -4,9 +4,10 @@
 
 - https://reactjs.org/
 - https://reactjs.org/docs/introducing-jsx.html
-
 ### Important
 - Using react means learning more JS, strong knowledge in one language will help learn other languages later on
+- yarn install to get dependencies
+- yarn start to host local react app
 
 ### React Basics
 - UI component library, not a framework, it renders the UI, not concerned about how you organize your data
