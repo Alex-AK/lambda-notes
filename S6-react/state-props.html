@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="root"></div>
+</body>
+
+<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+<script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js"></script>
+
+<!-- Building an App with Components -->
+<script type="text/babel">
+
+  const BartComponent = props => {
+    const {bart} = props; // assigning props to new object name for easier referencing
+    const familyMembers = bart.family.map((member) => <li> {member} </li>)
+    const phrases = bart.catchphrases.map((phrase) => <li> {phrase} </li>)
+    return (
+    <div>
+      <h3>Name: {bart.name}</h3>
+      <p>Age: {bart.age}</p>
+      <p>Identity: {bart.identity}</p>
+      <p>Best Friend: {bart.best_friend}</p>
+      <ul>{phrases}</ul>
+      <ul>{familyMembers}</ul>
+    </div>
+    );
+  };
+
+    const MeComponent = props => {
+      const {alex} = props;
+      const bands = alex.favoriteBands.map((band) => <li>{band}</li>);
+      return (
+        <div>
+          <h3>Name: {alex.name}</h3>
+          <ol>{bands}</ol>
+        </div>
+      );
+    };
+
+  const App = () => {
+    const BartProfile = {
+      name: "Bartholomew Jo-Jo Simpson",
+      identity: "The troublemaker of the Simpson family.",
+      age: "10 (2 years and 38 days older than Lisa)",
+      family: ['Homer', 'Marge', 'Lisa', 'Maggie', 'Abe', 'Jacqueline', 'Patty', 'Selma', 'Herb'],
+      catchphrases: ['Aye Carumba!', 'Eat my shorts', "I didn't do it!"],  
+      best_friend: 'Milhouse Van Houten',
+    }
+
+    const AlexObject = {
+      name: "Alex", 
+      Age: 30, 
+      location: "Seattle",
+      favoriteBook: "Subtle Art",
+      favoriteBands: ["Bon Iver", "Gregory Alan Isakov", "City and Colour", "Mandolin Orange"],
+    }
+  
+    return (
+      <div>
+        <BartComponent bart={BartProfile} />
+        <MeComponent alex={AlexObject} />
+
+      </div>
+    )
+  }
+
+  ReactDOM.render(<App/>, document.getElementById('root'));
+</script>
+
+</html>

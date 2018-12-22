@@ -4,6 +4,7 @@
 
 - https://reactjs.org/
 - https://reactjs.org/docs/introducing-jsx.html
+
 ### Important
 - Using react means learning more JS, strong knowledge in one language will help learn other languages later on
 - yarn install to get dependencies

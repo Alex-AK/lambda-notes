@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="root"></div>
+</body>
+
+<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+<script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js"></script>
+
+<style>
+  .basicButtonStyles {
+    height: 40px;
+    width: 150px;
+    line-height: 20px;
+    color: white;
+    font-size: 18px;
+  }
+
+  .teal {
+    background: teal;
+  }
+
+  .red {
+    background: red;
+  }
+
+  .blue {
+    background: blue;
+  }
+
+</style>
+
+<script type="text/babel">
+
+  const BasicButton = props => <button className={`basicButtonStyles ${props.buttonStyles}`}> {props.text} </button>;
+  BasicButton.defaultProps = {
+    buttonStyles: 'teal',
+    text: "Click Me!",
+  }
+
+  const colors = ['#FFBAAA', '#27576B', '#D47F6A', '#AA7539', '#003D19', '#6E91A1', '#552D00'];
+    let backgroundColor = '';
+    const colorSelectHandler = () => {
+      const color = colors[Math.floor(Math.random() * colors.length)];
+      backgroundColor = color;
+      return;
+    };
+    colorSelectHandler();
+
+    const MyDiv = props => <div style={{background: backgroundColor, color: '#FFFFFF', height: '50px', width: '200px', marginTop: '20px'}}>I am a div</div>;
+
+
+    const familyMembers = ["Steph", "Mom", "Dad", "Chris", "Olga", "Jess", "Zach", "Abigail", "Maddie", "Phoebe"];
+    let random = "";
+    const randomMember = props => {
+      const generateMember = familyMembers[Math.floor(Math.random() * familyMembers.length)];
+      random = generateMember;
+      return;
+    }
+    randomMember();
+
+    const FaveFamily = props => <div>Randomly generated family member: {random}</div>
+  const App = () => {
+    return (
+      <div>
+        <BasicButton />
+        <BasicButton buttonStyles="red" text="This works!"/>
+        <BasicButton buttonStyles="blue"/>
+        <BasicButton />
+
+        <MyDiv />
+
+        <FaveFamily />
+      </div>
+    )
+  }
+
+  ReactDOM.render(<App/>, document.getElementById('root'));
+</script>
+
+</html>
