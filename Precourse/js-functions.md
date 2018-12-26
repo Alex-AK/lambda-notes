@@ -92,7 +92,7 @@
   combine (5, 3, 6);
 ```
 
-- Interpolation - another way to create strings using variables in JS
+- String Template Literal & Interpolation - another way to create strings using variables in JS
 
 ```
   function logsSchool(School, descriptor){
