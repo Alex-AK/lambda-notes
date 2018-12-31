@@ -2,7 +2,7 @@
 
 ### References
 
-- https://getbootstrap.com/
+- https://getbootstrap.com/ (requires jQuery?)
 - https://codepen.io/lambdaschool/pen/vQqyWe?editors=1011
 
 ### Important
@@ -63,8 +63,8 @@
 ### Stretch assignment Tip
 
 ```
-togglePanel (){
-  // close all panels
-  // this.content.classList.toggle('toggle-on');
-}
+  togglePanel (){
+    // close all panels
+    // this.content.classList.toggle('toggle-on');
+  }
 ```
