@@ -15,7 +15,7 @@
 
 - sets up rules to link HTML with JS
   - DOM is not JS proper, but it's the only recommendation to manipulate websites
-    - DOM is a web API
+    - DOM is a web API.
 - DOM is broken down into nodes with specfic numbers assigned to them
 
 ## DOM Tree
