@@ -14,12 +14,12 @@
 
 ### Basics
 
-- we extend `Base React Class` from react library
+- we extend base React class from react library
 - base class gives us awesome functionality
-- Class components will have access to new tidbits from React API and Lifecycle
+- class components will have access to new tidbits from React API and Lifecycle
 - Render function is very important~
   - this is how react gets code through virtual DOM
-- Class components can hold state
+- class components can hold state
 
 ```
 import React, { Component, Fragment } from 'react';
