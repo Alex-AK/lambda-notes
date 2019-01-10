@@ -58,3 +58,44 @@
 
   ReactDOM.render(<App/>, document.getElementById('root'));
 </script>
+
+
+<script type="text/babel">
+
+  const GrandChild = props => <h3>Grandchild: {props.personData.grandChildName}</h3>;
+
+  const Child = props => {
+    return (
+      <div>
+        <h2>Child: {props.personData.childName}</h2>
+        <GrandChild personData={props.personData} />
+      </div>
+    )
+  };
+
+  const Parent = props => {
+    return (
+      <div>
+        <h1>Parent: {props.personData.parentName}</h1>
+        <Child personData={props.personData} />
+      </div>
+    )
+  };
+
+
+  const App = () => {
+    const personData = {
+      parentName: 'Gilbert',
+      childName: 'Regina',
+      grandChildName: 'Ryan'
+    }
+    
+    return (
+      <div>
+        <Parent personData={personData} />
+      </div>
+    );
+  };
+
+  ReactDOM.render(<App/>, document.getElementById('root'));
+</script>

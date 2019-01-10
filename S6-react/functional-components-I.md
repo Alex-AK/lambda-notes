@@ -17,7 +17,7 @@
   - uses virtual DOM to render the actual DOM through a `root` target
 
 - React allows compartmentalization (components) and scalability
-- Redux is a third party app that manages state
+- Redux is a third party state management
 - uses JSX language, template style language to represent our HTML and JS
 - Babel converts JS into a backwards compatible version for current and older browsers or environments.
 
