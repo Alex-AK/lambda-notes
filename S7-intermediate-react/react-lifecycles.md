@@ -9,10 +9,19 @@
 
 -
 
+# Lecture Notes
+
+### React Component
+
+- when we extend the base class `Component` we gain access to lifecycle methods
+- this allows us to control when things happen during the lifecycle
+- three phases: mounting, updating, unmounting
+
 ### render
 
 - render runs the return and displays components to UI
 - render reruns anytime there is a change in state
+- overlaps mounting and updating phase
 
 ```
   render() {
@@ -26,7 +35,13 @@
 
 - the components moment of birth
 - often used for API calls to bring data in from server or database
+  - initialize state data
 - once component mounts, code runs (ie API call)
+
+- constructor function is called and state data is initialized
+- can receive props and place them on component state
+- render is then invoked and JSX elements are transformed into DOM elements
+- after render is called, componentDidMount will be invoked
 
 ```
   componentDidMount() {
@@ -39,20 +54,29 @@
 - if React has any doubt the component needs to be rendered, it will run render
   - this can be costly and often unneeded
 - this method gives us logic to make component render when we want it to render
+
   - returning true makes component operate as normal
   - returning false will prevent render from running when props or state changes
+
+- Any new props received from a parent, will be triggered updates to the child
+- setState is not directly part of lifecycle, but any change to state will call render by default
 
 ```
   shouldComponentUpdate(nextProps, nextState) {
     // return true if want it to update
     // return false if not
   }
+
+  componentDidUpdate () {
+
+  }
 ```
 
 ### componentWillUnmount
 
 - teardown or cleanup your code before your component disappears
-- ie remove event listener after it occurs once
+- commonly used to remove event listeners after it occurs once
+  - (ie window resize event listener)
 
 ```
 componentWillUnmount () {
