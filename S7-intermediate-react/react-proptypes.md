@@ -6,7 +6,13 @@
 
 ### Important
 
--
+### Helpful Tips
+
+- when on a component that does not use data, it just passes it, see below
+- type check for an array or object on a pass through component
+- deconstruct props if you have to type `props.whatever` more than three times
+- build for every component, to practice, and make your components stronger
+- prop types ONLY check props, not parameters passed
 
 ### Vanilla JS Review
 
@@ -117,10 +123,12 @@ TodoList.propTypes = {
 };
 ```
 
-### Helpful Tips
+### Default Prop Values
 
-- when on a component that does not use data, it just passes it, see below
-- type check for an array or object on a pass through component
-- deconstruct props if you have to type `props.whatever` more than three times
-- build for every component, to practice, and make your components stronger
-- prop types ONLY check props, not parameters passed
+- if you need to pull in data before a method runs you can use default props to hold state before component mounts
+
+```
+TodoList.defaultProps = {
+  todos: []
+}
+```

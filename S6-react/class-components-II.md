@@ -43,6 +43,12 @@
 - good for boolean, counter, or editing a current state
 - anytime we need to access a current or previous value on state, we need to use the functional setState pattern (seen below)
 
+### When to use prevState
+
+- https://twitter.com/dan_abramov/status/816394376817635329/photo/1
+- https://medium.freecodecamp.org/functional-setstate-is-the-future-of-react-374f30401b6b
+- https://medium.com/@wisecobbler/using-a-function-in-setstate-instead-of-an-object-1f5cfd6e55d1
+
 ```
   increaseCount = () => {
     this.setState(previousState => {
