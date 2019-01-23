@@ -1,10 +1,9 @@
 import React from 'react';
 // import PropTypes from 'prop-types'
-import avengers from '../data';
 
 const AvengerPage = props => {
   const id = props.match.params.id;
-  const avenger = avengers.find(avenger => `${avenger.id}` === id);
+  const avenger = props.avengers.find(avenger => `${avenger.id}` === id);
 
   return (
     <div>

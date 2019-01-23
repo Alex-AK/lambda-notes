@@ -2,11 +2,20 @@
 
 ### References
 
--
+- https://codesandbox.io/s/1mkl8wykl (follow along)
+- https://reactstrap.github.io/components/alerts/ (React Strap)
 
 ### Important
 
 -
+
+### Options
+
+- vanilla CSS
+- bootstrap
+- preprocessor
+- styled components
+- react strap
 
 ### Why Styled Components?
 

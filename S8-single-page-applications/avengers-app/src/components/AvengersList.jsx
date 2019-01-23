@@ -2,12 +2,10 @@ import React from 'react';
 // import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-import avengers from '../data';
-
 const AvengersList = props => {
   return (
     <div className="characters-list-wrapper">
-      {avengers.map(avenger => (
+      {props.avengers.map(avenger => (
         <div className="character-card" key={avenger.id}>
           <img src={avenger.thumbnail} alt={avenger.name} />
           <h2>
