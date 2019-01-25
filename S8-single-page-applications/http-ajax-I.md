@@ -9,13 +9,35 @@
 
 ### Promises and Async Code
 
+- when we have slow (in terms of computer speed) operations, we can flag it with a promise
+  - browser will flag the promise and continue to compile and render code
+  - when the promise is completed, the Promise callback runs
 - async code is what makes it possible for JS engine to do 2 things at the same time
   - use async to execute code while fetching external data
   - create a helper object, called a Promise to let browser know an async task has finished
 - Promise is an object with a few properties
+
   - instantiate a new Promise with `new Promise` and pass a callback that receives `resolve` and `reject` funtion
   - if successful, `resolve` is called, if rejected `reject` is called
   - when a Promise is resolved or rejected, we use the methods `.then()` or `.catch()` to tell engine what to do next
+
+### Promises - Four Characteristics
+
+1. Promise takes executors (function) of something to do later (callback)
+
+- the return of the executor needs to be handle asynchronously
+
+2. Promise has internal state (which is immutable)
+   a. pending
+   b. fulfilled
+   c. rejected
+
+3. Promise has a value
+
+- if async function was successful - the value is the data we want
+- the value can also be an 'error' if something goes wrong
+
+4. Promise has to access a `then` and `catch` function
 
 ```
   const asyncFunction = () => {
