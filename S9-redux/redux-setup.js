@@ -79,8 +79,3 @@ export default connect(
     name_of_action_here
   }
 )(Counter);
-
-
-
-
-
