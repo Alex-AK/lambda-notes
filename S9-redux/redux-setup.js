@@ -23,7 +23,7 @@ export default store;
 // reducer 
 import { NAME_OF_TYPE } from "../actions/types";
 
-export const initialState = {
+const initialState = {
   whatever: 'goes here'
 };
 
@@ -56,7 +56,6 @@ export const name_of_action_here = count => {
   };
 };
 
-
 // linking components
 import { connect } from "react-redux";
 import { name_of_action_here } from "../actions";
@@ -78,4 +77,4 @@ export default connect(
   {
     name_of_action_here
   }
-)(Counter);
+)(ComponentNameHere);

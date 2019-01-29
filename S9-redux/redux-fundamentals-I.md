@@ -4,6 +4,7 @@
 
 - https://code-cartoons.com/a-cartoon-guide-to-flux-6157355ab207
 - https://code-cartoons.com/a-cartoon-intro-to-redux-3afb775501a6
+- https://codesandbox.io/s/42xx48wwlw ()
 
 ### Redux Terminology Basics
 
@@ -118,6 +119,16 @@
 ### Dustin Redux Tips
 
 - access store in container components, then pass data down
+- ALWAYS store logic for changing state in reducer, NOT in action
 - as a developer, you get to choose the technologies in your app
 - there is no preferred method of state management at the moment
 - beware hooks are coming soon, which will allow react to
+
+### Four Methods on Provider
+
+- probably won't use these functions in your code
+
+1. dispatch() :
+2. getState() : gets latest state from store
+3. replaceReducer() : think of this as reducer
+4. subscribe() : watches for changes in store
