@@ -102,3 +102,19 @@
 - code on demand
   - server sends resource as needed
   - client only needs to know how to execute code, and read code it receives back
+
+### Agenda
+
+- add express to node application
+- use express to create a web API
+- add endpoints that can respond to get requests
+- return JSON data from API
+- return correct HTTP status codes
+
+### Terminology
+
+- API : Application Programming Interface
+  - server software that produces a set of endpoints that allow clients access to data
+- endpoint : touch points that link two systems together, simply a URL that points to a server
+- resource : the things our application manages, the nouns in the application domain
+  - user, products, orders, clients, returns
