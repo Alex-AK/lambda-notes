@@ -73,36 +73,6 @@
 - views : provide a way to dynamically render HTML on the server and even generate it using other languages
   - not something we're going to get into
 
-### Representational State Transfer (REST)
-
-- set of principles introduced in 1999
-- a way of designing and distributing software
-- recommendation NOT a standard
-- other options exist and are gaining popularity, such as GraphQL
-
-### Principles
-
-- everything is a resource
-- each resource is accessible via a unique URI
-- resource can have multiple representations
-- communication is done over the stateless protocol (HTTP)
-- management of resources is done via HTTP methods
-
-### Constraints of REST
-
-- client : server architecture
-  - client (app) sends requests to server, and receives responses from server
-- stateless
-  - multiple clients (ios, web, android apps) can interact with server, sends interaction when it's requested
-- cache items - this helps with performance
-- each resource should be accessible through a single URL for a particular resource
-- layered system
-  - may have a single component in a layered system that doesn't interact with server
-  - especially important given security need these days
-- code on demand
-  - server sends resource as needed
-  - client only needs to know how to execute code, and read code it receives back
-
 ### Agenda
 
 - add express to node application
@@ -118,3 +88,49 @@
 - endpoint : touch points that link two systems together, simply a URL that points to a server
 - resource : the things our application manages, the nouns in the application domain
   - user, products, orders, clients, returns
+
+### Using the Query String
+
+```
+// Hobbit Sorting on Get
+
+Request to: /hobbits?sortby=id
+
+server.get('/hobbits', (req, res) => {
+  // query string parameters get added to req.query
+  const sortField = req.query.sortby || 'id';
+  const hobbits = [
+    {
+      id: 1,
+      name: 'Samwise Gamgee',
+    },
+    {
+      id: 2,
+      name: 'Frodo Baggins',
+    },
+  ];
+
+  // apply the sorting
+  const response = hobbits.sort(
+    (a, b) => (a[sortField] < b[sortField] ? -1 : 1)
+  );
+
+  res.status(200).json(response);
+});
+```
+
+```
+// Hobbit Posting
+
+let nextId = 3;
+
+// and modify the post endpoint like so:
+server.post('/hobbits', (req, res) => {
+  const hobbit = req.body;
+  hobbit.id = nextId++;
+
+  hobbits.push(hobbit);
+
+  res.status(201).json(hobbits);
+});
+```
