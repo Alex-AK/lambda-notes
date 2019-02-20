@@ -24,6 +24,9 @@
 - express middleware is compatible with connect middleware
   - connect is a web framework for Node that only provides middleware layer, use as needed
 - order of operations matter with middleware
+- think of middleware like a reducer in redux, it's a chain
+- `reducer chain = [r1, r2, r3, etc]`
+- `middleware chain = [m1, m2, m3, e1, m4, m5, m6, e2, m7, m8, em]`
 
 ### Middleware Types
 
@@ -35,6 +38,8 @@
     - Morgan : logger middleware, to show you who's using your API
     - CORS : cross origin resource sharing, enable cross site communication
     - Helmet : security layer
+      - without added security, the response sends information someone could use to exploit server
+      - helmet sends back generic headers that are more secure
 - custom build : functions we write to perform certain tasks
 
 ```
@@ -111,6 +116,11 @@ server.get('/mellon', auth, (req, res) => {
 - the convention for that single argument will be an error object like this
   `next(new Error("error message"))`
 - error handling middleware that handles full route should be placed at the end
+- `middleware chain = [m1, m2, m3, e1, m4, m5, m6, e2, m7, m8, em]`
+  - if error occurs on m1, m2, or m3, it will go to e1
+  - e1 can decide to fix error and go to m4, or send error back to client
+- most people start with a global error catch
+- some applications don't need anything more than a global error handler
 
 ```
 const express = require('express');
