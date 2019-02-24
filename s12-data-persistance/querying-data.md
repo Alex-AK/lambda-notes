@@ -223,3 +223,48 @@ deleting the migrations folder and running latest again will run all migrations 
 ### Knex Setup From Class
 
 `npx knex init`
+
+### Returning A Nested Array in an Object with Knex
+
+```
+const getProjectsById = id => {
+  return db('projects as p')
+    .select(
+      'p.id',
+      'p.name',
+      'p.description',
+      'p.completed',
+      'a.id',
+      'a.description',
+      'a.notes',
+      'a.completed'
+    )
+    .join('actions as a', 'a.project_id', 'p.id')
+    .where('p.id', id)
+    .then(result => {
+      const project = {
+        next:
+          id > 0
+            ? `http://localhost:5000/api/projects/${Number(id) + 1}`
+            : null,
+        previous:
+          id < 2
+            ? null
+            : `http://localhost:5000/api/projects/${Number(id) - 1}`,
+        projects: {
+          id: result[0].id,
+          name: result[0].name,
+          description: result[0].description,
+          completed: result[0].completed === 0 ? false : true,
+          actions: result.map(item => ({
+            id: item.id,
+            description: item.description,
+            notes: item.notes,
+            completed: item.completed
+          }))
+        }
+      };
+      return project;
+    });
+};
+```
