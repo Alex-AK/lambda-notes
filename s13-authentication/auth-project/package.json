@@ -4,7 +4,8 @@
   "description": "Authentication Sprint Guided Project",
   "main": "index.js",
   "scripts": {
-    "server": "nodemon"
+    "servertoken": "nodemon token.js",
+    "serversessions": "nodemon sessions.js"
   },
   "keywords": [],
   "author": "Lambda School",
@@ -15,6 +16,7 @@
     "express": "^4.16.4",
     "express-session": "^1.15.6",
     "helmet": "^3.15.1",
+    "jsonwebtoken": "^8.5.0",
     "knex": "^0.16.3",
     "sqlite3": "^4.0.6"
   },

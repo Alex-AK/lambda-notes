@@ -44,10 +44,10 @@ const sessionConfig = {
   store: new KnexSessionStore({
     // constructor function, moves session storage to
     knex: db, // pass in where knex is configured
-    tablename: 'sessions', // creates new table to store session data
-    sidfieldname: 'sid',
     createTable: true, // if no table exists, this library makes one
-    clearInterval: 1000 * 60 * 60 // clear unused sessions data in ms
+    tablename: 'sessions', // creates new table to store session data, defaults so sessions
+    sidfieldname: 'sid', // defaults to sid
+    clearInterval: 1000 * 60 * 60 // clear unused sessions data in ms, defaults to 60000
   })
 };
 
@@ -82,7 +82,7 @@ server.post('/api/login', (req, res) => {
     .then(user => {
       // check that passwords match
       if (user && bcrypt.compareSync(password, user.password)) {
-        // validate session here
+        // create session here
         req.session.user = user;
 
         res
