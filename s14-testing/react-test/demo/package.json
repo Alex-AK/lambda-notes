@@ -6,6 +6,7 @@
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
     "react-scripts": "2.1.5",
+    "react-test-renderer": "^16.8.4",
     "react-testing-library": "^6.0.0"
   },
   "scripts": {
